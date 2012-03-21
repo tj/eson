@@ -1,0 +1,3 @@
+{
+  "permissions": "include: test/fixtures/config.json"
+}
