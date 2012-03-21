@@ -9,7 +9,10 @@ describe('include', function(){
       .read('test/fixtures/include.json')
       .should.eql([
         "foo",
-        { foo: 'bar', bar: 'baz' },
+        {
+          "view videos": "guest",
+          "delete videos": "admin"
+        },
         ["admin", "guest"]
       ]);
   })
