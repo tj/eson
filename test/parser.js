@@ -15,4 +15,27 @@ describe('Parser', function(){
       parser.parse('{ "foo": "bar" }');
     })
   })
+
+  describe('.parse(str)', function(){
+    it('should invoke each plugin', function(done){
+      var parser = new Parser
+        , calls = [];
+
+      parser.use(function(key, val){
+        key.should.equal('foo');
+        val.should.equal('bar');
+        calls.push('a');
+      });
+
+      parser.use(function(key, val){
+        key.should.equal('foo');
+        val.should.equal('bar');
+        calls.push('b');
+        calls.should.eql(['a', 'b']);
+        done();
+      });
+
+      parser.parse('{ "foo": "bar" }');
+    })
+  })
 })
