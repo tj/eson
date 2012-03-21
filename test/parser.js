@@ -46,5 +46,14 @@ describe('Parser', function(){
       parser.parse('{ "foo": "bar" }')
         .should.eql({ foo: 'bar' });
     })
+
+    it('should modify when a value is returned', function(){
+      var parser = new Parser;
+
+      parser.use(function(key, val){ return 'hey'; });
+
+      parser.parse('{ "foo": "bar" }')
+        .should.eql({ foo: 'hey' });
+    })
   })
 })
