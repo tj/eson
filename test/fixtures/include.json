@@ -1,4 +1,4 @@
 ["foo",
- "include: test/fixtures/config.json",
+ "include: config",
  "bar",
- "include: test/fixtures/config.json"]
+ "include: config"]
