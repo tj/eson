@@ -8,14 +8,7 @@ console.log(parser.read('examples/config.json'));
 
 parser.use(Parser.ms);
 parser.use(Parser.dimensions);
-parser.use(root('/www/myapp.com'));
-
-function root(path) {
-  return function(key, val){
-    if ('string' != typeof val) return;
-    return val.replace('{root}', path)
-  }
-}
+parser.use(Parser.replace('{root}', '/www/myapp.com'));
 
 console.log();
 console.log('After:');
