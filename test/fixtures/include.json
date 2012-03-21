@@ -1,3 +1,4 @@
-{
-  "permissions": "include: test/fixtures/config.json"
-}
+["foo",
+ "include: test/fixtures/config.json",
+ "bar",
+ "include: test/fixtures/config.json"]

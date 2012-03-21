@@ -7,8 +7,11 @@ describe('include', function(){
     Parser()
       .use(include)
       .read('test/fixtures/include.json')
-      .should.eql({
-        permissions: { foo: 'bar', bar: 'baz' }
-      });
+      .should.eql([
+        "foo",
+        { foo: 'bar', bar: 'baz' },
+        "bar",
+        { foo: 'bar', bar: 'baz' }
+      ]);
   })
 })
