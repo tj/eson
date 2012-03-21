@@ -1,0 +1,5 @@
+{
+  "GET /": "photo list",
+  "GET /photo/:id": "photo show",
+  "GET /user/:id": "user show"
+}
