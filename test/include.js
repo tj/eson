@@ -10,8 +10,7 @@ describe('include', function(){
       .should.eql([
         "foo",
         { foo: 'bar', bar: 'baz' },
-        "bar",
-        { foo: 'bar', bar: 'baz' }
+        ["admin", "guest"]
       ]);
   })
 })

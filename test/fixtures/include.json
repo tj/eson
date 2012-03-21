@@ -1,4 +1,3 @@
 ["foo",
  "include: config",
- "bar",
- "include: config"]
+ "include: ./config/roles"]
