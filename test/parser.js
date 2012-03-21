@@ -2,6 +2,12 @@
 var Parser = require('../');
 
 describe('Parser', function(){
+  describe('Parser()', function(){
+    it('should return a new Parser', function(){
+      Parser().should.be.an.instanceof(Parser);
+    })
+  })
+
   describe('.use(fn)', function(){
     it('should be invoked with both the key and value', function(done){
       var parser = new Parser;
