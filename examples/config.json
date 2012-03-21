@@ -1,0 +1,6 @@
+{
+  "views": "{root}/views",
+  "view engine": "jade",
+  "poll interval": "5 seconds",
+  "canvas size": "800x600"
+}
