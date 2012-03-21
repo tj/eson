@@ -16,6 +16,15 @@ describe('Parser', function(){
     })
   })
 
+  describe('.read(path)', function(){
+    it('should read the JSON and apply plugins', function(){
+      var parser = new Parser;
+      parser.use(function(key, val){ return val.toUpperCase(); });
+      var obj = parser.read('test/fixtures/config.json');
+      obj.should.eql({ foo: 'BAR', bar: 'BAZ' });
+    })
+  })
+
   describe('.parse(str)', function(){
     it('should invoke each plugin', function(done){
       var parser = new Parser
