@@ -37,5 +37,14 @@ describe('Parser', function(){
 
       parser.parse('{ "foo": "bar" }');
     })
+
+    it('should not modify when undefined is returned', function(){
+      var parser = new Parser;
+
+      parser.use(function(key, val){});
+
+      parser.parse('{ "foo": "bar" }')
+        .should.eql({ foo: 'bar' });
+    })
   })
 })
