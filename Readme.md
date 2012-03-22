@@ -1,11 +1,59 @@
 
 # ejson
 
-  Extended pluggable JSON for node.
+  Extended JSON for node.
 
 ## Parser
 
   Currently only the parser portion is implemented, useful for configuration files.
+  For example a typical configuration file might look something like the following:
+
+```json
+{
+  "views": "/www/example.com/views",
+  "view engine": "jade",
+  "poll interval": 5000,
+  "canvas size": { "width": 800, "height": 600 }
+}
+```
+
+ With Extended JSON you can define plugin functions, or use ones
+ bundled with ejson to transform the input, allowing for more
+ declarative configurations as shown here:
+
+```json
+{
+  "views": "{root}/views",
+  "view engine": "jade",
+  "poll interval": "5 seconds",
+  "canvas size": "800x600"
+}
+```
+
+### Writing plugins
+
+ Writing a plugin is simple, it's a function which takes the signature `(key, val, parser)`. Let's write one that transforms every value to "foo":
+
+```js
+function foo(key, val, parser) {
+  return 'foo';
+}
+```
+
+ Then use the plugin like so:
+
+```js
+var ejson = require('ejson');
+
+var conf = ejson()
+  .use(foo)
+  .read('path/to/config.json');
+```
+
+ Now suppose `path/to/config.json` contained `{ "foo": "bar", "bar": "baz" }`,
+ the `foo()` plugin would yield `{ "foo": "foo", "bar": "foo" }`. So you get the picture,
+ with this we can accept arbitrary strings such as "5 seconds" and transform
+ it to the more useful `5000` milliseconds representation.
 
 ## License 
 
