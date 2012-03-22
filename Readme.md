@@ -3,6 +3,12 @@
 
   Extended JSON for node.
 
+## Installation
+
+```
+$ npm install ejson
+```
+
 ## Parser
 
   Currently only the parser portion is implemented, useful for configuration files.
