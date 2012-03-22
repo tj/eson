@@ -55,6 +55,83 @@ var conf = ejson()
  with this we can accept arbitrary strings such as "5 seconds" and transform
  it to the more useful `5000` milliseconds representation.
 
+ Many plugins may of course be used, and _all_ will be executed regardless, so if necessary
+ subsequent plugins may still make modifications.
+
+```js
+ejson()
+  .use(ejson.ms)
+  .use(ejson.include)
+  .use(ejson.dimensions)
+  .use(ejson.replace('{root}', '/www/example.com'))
+  .parse('{ "interval": "15 minutes" }');
+```
+### ejson.ms
+
+  The milliseconds plugin supports strings like "5s", "5 seconds", "3 days", etc:
+  
+```js
+ejson()
+  .use(ejson.ms)
+  .parse('{ "interval": "15 minutes" }');
+```
+
+yields:
+
+```js
+{ interval: 900000 }
+```
+
+### ejson.include
+
+  The include plugin allows you to literally include other JSON files. This works in
+  both arrays and object literals, and loads relative to the callee's file. For example:
+  
+```js
+ejson()
+  .use(ejson.include)
+  .parse('{ "prod": "include config/production" }');
+```
+
+yields:
+
+```js
+{ prod: { whatever: 'is', within: 'config/production.json' }}
+```
+
+### ejson.replace(str, val)
+
+  The replace plugin allows you to replace arbitrary substrings, useful
+  for constants such as the application's root directory etc.
+  
+```js
+ejson()
+  .use(ejson.replace('{root}', '/www/example.com'))
+  .parse('{ "upload path": "{root}/tmp" }');
+```
+
+yields:
+
+```js
+{ "upload path": "/www/example.com/tmp" }
+```
+
+### ejson.glob
+
+  The glob plugin allows you to specify glob strings, prefixed by "glob":
+  
+```js
+ejson()
+  .use(ejson.glob)
+  .parse('{ "js": "glob public/{js,vendor}/*.js" }');
+```
+
+yields:
+
+```js
+{ js: ["public/js/app.js", "public/js/user.js", "public/vendor/jquery.js"] }
+```
+
 ## License 
 
 (The MIT License)
