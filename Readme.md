@@ -132,6 +132,21 @@ yields:
 { js: ["public/js/app.js", "public/js/user.js", "public/vendor/jquery.js"] }
 ```
 
+## moar!
+
+  That's it for now, just experimenting with it, feel free to send me a PR
+  or open and issue if you have some ideas. I'd like to keep everything
+  valid JSON, for example you can use the `include` plugin to include
+  env-specific config into package.json, and package.json remains a
+  valid JSON document.
+
+## Running tests
+
+```
+$ npm install
+$ make test
+```
+
 ## License 
 
 (The MIT License)
