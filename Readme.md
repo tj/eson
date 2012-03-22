@@ -56,7 +56,7 @@ var conf = ejson()
  it to the more useful `5000` milliseconds representation.
 
  Many plugins may of course be used, and _all_ will be executed regardless, so if necessary
- subsequent plugins may still make modifications.
+ subsequent plugins may still make modifications. Depending on what the plugins the order used _may_ have an effect on the JSON.
 
 ```js
 ejson()
