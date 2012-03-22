@@ -1,3 +1,3 @@
 ["foo",
- "include: ./config/permissions",
- "include: ./config/roles"]
+ "include config/permissions",
+ "include config/roles"]
