@@ -38,12 +38,12 @@ Parser()
   .use(include)
   .read('test/fixtures/include.json')
   .should.eql([
-    &quot;foo&quot;,
+    "foo",
     {
-      &quot;view videos&quot;: &quot;guest&quot;,
-      &quot;delete videos&quot;: &quot;admin&quot;
+      "view videos": "guest",
+      "delete videos": "admin"
     },
-    [&quot;admin&quot;, &quot;guest&quot;]
+    ["admin", "guest"]
   ]);
 ```
 
@@ -86,7 +86,7 @@ parser.use(function(key, val){
   done();
 });
 
-parser.parse('{ &quot;foo&quot;: &quot;bar&quot; }');
+parser.parse('{ "foo": "bar" }');
 ```
 
 ## .read(path)
@@ -122,7 +122,7 @@ parser.use(function(key, val){
   done();
 });
 
-parser.parse('{ &quot;foo&quot;: &quot;bar&quot; }');
+parser.parse('{ "foo": "bar" }');
 ```
 
 
@@ -133,7 +133,7 @@ var parser = new Parser;
 
 parser.use(function(key, val){});
 
-parser.parse('{ &quot;foo&quot;: &quot;bar&quot; }')
+parser.parse('{ "foo": "bar" }')
   .should.eql({ foo: 'bar' });
 ```
 
@@ -145,7 +145,7 @@ var parser = new Parser;
 
 parser.use(function(key, val){ return 'hey'; });
 
-parser.parse('{ &quot;foo&quot;: &quot;bar&quot; }')
+parser.parse('{ "foo": "bar" }')
   .should.eql({ foo: 'hey' });
 ```
 
