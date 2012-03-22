@@ -1,5 +1,0 @@
-{
-  "/": "photo list",
-  "/photo/:id": "photo show",
-  "/user/:id": "user show"
-}

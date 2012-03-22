@@ -1,7 +1,11 @@
 
 # ejson
 
-  Extended JSON
+  Extended pluggable JSON for node.
+
+## Parser
+
+  Currently only the parser portion is implemented, useful for configuration files.
 
 ## License 
 

@@ -1,4 +1,0 @@
-
-exports.show = function(){
-  
-};
