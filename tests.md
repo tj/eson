@@ -1,15 +1,26 @@
+  - [dimensions](#dimensions)
+  - [glob](#glob)
+  - [include](#include)
+  - [ms](#ms)
+  - [Parser](#parser)
+    - [Parser()](#parser)
+    - [.use(fn)](#usefn)
+    - [.read(path)](#readpath)
+    - [.parse(str)](#parsestr)
+  - [replace](#replace)
+<a name="" />
  
+<a name="dimensions" />
 # dimensions
-
- should return an object with width/height.
+should return an object with width/height.
 
 ```js
 dim('', '200x400').should.eql({ width: 200, height: 400 });
 ```
 
+<a name="glob" />
 # glob
-
- should perform a sync glob.
+should perform a sync glob.
 
 ```js
 glob('', 'glob test/fixtures/*.js').should.eql(
@@ -29,9 +40,9 @@ glob('', 'glob test/fixtures/{bar,foo}.js').should.eql(
 );
 ```
 
+<a name="include" />
 # include
-
- should parse the given file.
+should parse the given file.
 
 ```js
 Parser()
@@ -47,9 +58,9 @@ Parser()
   ]);
 ```
 
+<a name="ms" />
 # ms
-
- should parse string ms representations.
+should parse string ms representations.
 
 ```js
 ms('', '1000ms').should.equal(1000);
@@ -64,18 +75,19 @@ ms('', '1 year').should.equal(31557600000);
 ms('', '5 years').should.equal(5 * 31557600000);
 ```
 
+<a name="parser" />
 # Parser
+<a name="parser" />
 ## Parser()
-
- should return a new Parser.
+should return a new Parser.
 
 ```js
 Parser().should.be.an.instanceof(Parser);
 ```
 
+<a name="usefn" />
 ## .use(fn)
-
- should be invoked with both the key and value.
+should be invoked with both the key and value.
 
 ```js
 var parser = new Parser;
@@ -89,9 +101,9 @@ parser.use(function(key, val){
 parser.parse('{ "foo": "bar" }');
 ```
 
+<a name="readpath" />
 ## .read(path)
-
- should read the JSON and apply plugins.
+should read the JSON and apply plugins.
 
 ```js
 var parser = new Parser;
@@ -100,9 +112,9 @@ var obj = parser.read('test/fixtures/config.json');
 obj.should.eql({ foo: 'BAR', bar: 'BAZ' });
 ```
 
+<a name="parsestr" />
 ## .parse(str)
-
- should invoke each plugin.
+should invoke each plugin.
 
 ```js
 var parser = new Parser
@@ -125,8 +137,7 @@ parser.use(function(key, val){
 parser.parse('{ "foo": "bar" }');
 ```
 
-
- should not modify when undefined is returned.
+should not modify when undefined is returned.
 
 ```js
 var parser = new Parser;
@@ -137,8 +148,7 @@ parser.parse('{ "foo": "bar" }')
   .should.eql({ foo: 'bar' });
 ```
 
-
- should modify when a value is returned.
+should modify when a value is returned.
 
 ```js
 var parser = new Parser;
@@ -149,9 +159,9 @@ parser.parse('{ "foo": "bar" }')
   .should.eql({ foo: 'hey' });
 ```
 
+<a name="replace" />
 # replace
-
- should replace occurrences of a string.
+should replace occurrences of a string.
 
 ```js
 replace('{root}', '/my/path')
