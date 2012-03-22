@@ -140,6 +140,8 @@ yields:
   env-specific config into package.json, and package.json remains a
   valid JSON document.
 
+  For addition documentation view the [test markdown](https://github.com/visionmedia/ejson/blob/master/tests.md).
+
 ## Running tests
 
 ```
