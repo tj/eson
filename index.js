@@ -1,4 +1,4 @@
 
-module.exports = process.env.EJSON_COV
-  ? require('./lib-cov/ejson')
-  : require('./lib/ejson');
+module.exports = process.env.ESON_COV
+  ? require('./lib-cov/eson')
+  : require('./lib/eson');

@@ -1,7 +1,7 @@
 
-var Parser = require('../')
+var eson = require('../')
   , glob = require('glob')
-  , parser = new Parser;
+  , parser = eson();
 
 console.log();
 console.log('Before:');

@@ -1,14 +1,14 @@
 
-var Parser = require('../')
-  , parser = new Parser;
+var eson = require('../')
+  , parser = eson();
 
 console.log();
 console.log('Before:');
 console.log(parser.read('examples/config.json'));
 
-parser.use(Parser.ms);
-parser.use(Parser.dimensions);
-parser.use(Parser.replace('{root}', '/www/myapp.com'));
+parser.use(eson.ms);
+parser.use(eson.dimensions);
+parser.use(eson.replace('{root}', '/www/myapp.com'));
 
 console.log();
 console.log('After:');

@@ -7,7 +7,7 @@ test:
 		--reporter $(REPORTER)
 
 test-cov: lib-cov
-	EJSON_COV=1 $(MAKE) test REPORTER=html-cov > coverage.html
+	ESON_COV=1 $(MAKE) test REPORTER=html-cov > coverage.html
 
 lib-cov: lib
 	jscoverage $< $@ 

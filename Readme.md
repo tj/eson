@@ -1,12 +1,12 @@
 
-# ejson
+# eson
 
   Extended JSON for node.
 
 ## Installation
 
 ```
-$ npm install ejson
+$ npm install eson
 ```
 
 ## Parser
@@ -24,7 +24,7 @@ $ npm install ejson
 ```
 
  With Extended JSON you can define plugin functions, or use ones
- bundled with ejson to transform the input, allowing for more
+ bundled with eson to transform the input, allowing for more
  declarative configurations as shown here:
 
 ```js
@@ -49,9 +49,9 @@ function foo(key, val, parser) {
  Then use the plugin like so:
 
 ```js
-var ejson = require('ejson');
+var eson = require('eson');
 
-var conf = ejson()
+var conf = eson()
   .use(foo)
   .read('path/to/config.json');
 ```
@@ -65,20 +65,20 @@ var conf = ejson()
  subsequent plugins may still make modifications. Depending on what the plugins the order used _may_ have an effect on the JSON.
 
 ```js
-ejson()
-  .use(ejson.ms)
-  .use(ejson.include)
-  .use(ejson.dimensions)
-  .use(ejson.replace('{root}', '/www/example.com'))
+eson()
+  .use(eson.ms)
+  .use(eson.include)
+  .use(eson.dimensions)
+  .use(eson.replace('{root}', '/www/example.com'))
   .parse('{ "interval": "15 minutes" }');
 ```
-### ejson.ms
+### eson.ms
 
   The milliseconds plugin supports strings like "5s", "5 seconds", "3 days", etc:
   
 ```js
-ejson()
-  .use(ejson.ms)
+eson()
+  .use(eson.ms)
   .parse('{ "interval": "15 minutes" }');
 ```
 
@@ -88,14 +88,14 @@ yields:
 { interval: 900000 }
 ```
 
-### ejson.include
+### eson.include
 
   The include plugin allows you to literally include other JSON files. This works in
   both arrays and object literals, and loads relative to the callee's file. For example:
   
 ```js
-ejson()
-  .use(ejson.include)
+eson()
+  .use(eson.include)
   .parse('{ "prod": "include config/production" }');
 ```
 
@@ -105,14 +105,14 @@ yields:
 { prod: { whatever: 'is', within: 'config/production.json' }}
 ```
 
-### ejson.replace(str, val)
+### eson.replace(str, val)
 
   The replace plugin allows you to replace arbitrary substrings, useful
   for constants such as the application's root directory etc.
   
 ```js
-ejson()
-  .use(ejson.replace('{root}', '/www/example.com'))
+eson()
+  .use(eson.replace('{root}', '/www/example.com'))
   .parse('{ "upload path": "{root}/tmp" }');
 ```
 
@@ -122,13 +122,13 @@ yields:
 { "upload path": "/www/example.com/tmp" }
 ```
 
-### ejson.glob
+### eson.glob
 
   The glob plugin allows you to specify glob strings, prefixed by "glob":
   
 ```js
-ejson()
-  .use(ejson.glob)
+eson()
+  .use(eson.glob)
   .parse('{ "js": "glob public/{js,vendor}/*.js" }');
 ```
 
@@ -146,7 +146,7 @@ yields:
   env-specific config into package.json, and package.json remains a
   valid JSON document.
 
-  For addition documentation view the [test markdown](https://github.com/visionmedia/ejson/blob/master/tests.md).
+  For addition documentation view the [test markdown](https://github.com/visionmedia/eson/blob/master/tests.md).
 
 ## Running tests
 

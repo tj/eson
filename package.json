@@ -1,5 +1,5 @@
 {
-    "name": "ejson"
+    "name": "eson"
   , "version": "0.0.1"
   , "description": "Extended JSON - pluggable JSON logic for dates, includes, and more"
   , "keywords": ["json", "config"]
