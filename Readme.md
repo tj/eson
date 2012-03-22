@@ -14,7 +14,7 @@ $ npm install ejson
   Currently only the parser portion is implemented, useful for configuration files.
   For example a typical configuration file might look something like the following:
 
-```json
+```js
 {
   "views": "/www/example.com/views",
   "view engine": "jade",
@@ -27,7 +27,7 @@ $ npm install ejson
  bundled with ejson to transform the input, allowing for more
  declarative configurations as shown here:
 
-```json
+```js
 {
   "views": "{root}/views",
   "view engine": "jade",
