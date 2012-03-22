@@ -12,4 +12,7 @@ test-cov: lib-cov
 lib-cov: lib
 	jscoverage $< $@ 
 
-.PHONY: test test-cov
+tests.md:
+	$(MAKE) REPORTER=markdown > tests.md
+
+.PHONY: test test-cov tests.md
