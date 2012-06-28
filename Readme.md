@@ -139,6 +139,15 @@ yields:
 { "upload path": "/www/example.com/tmp" }
 ```
 
+### eson.args([args])
+
+  Parse from the given `args` or __ARGV__. For example if you have a setting
+  named "dev ui" with a default value of `false`, `--dev-ui` would enable it,
+  or `--dev-ui yes` would provide the value "yes" which is of course also truthy.
+
+  To compliment `--NAME` you may also negate this, if "dev ui" is enabled by default
+  then you may use `--no-dev-ui` to disable it.
+
 ### eson.glob
 
   The glob plugin allows you to specify glob strings, prefixed by "glob":
