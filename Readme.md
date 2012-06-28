@@ -109,6 +109,8 @@ yields:
 
   Convert "yes", "no", "enabled", "disabled" into booleans.
 
+### eson.env([prefix])
+
 ### eson.replace(str, val)
 
   The replace plugin allows you to replace arbitrary substrings, useful
