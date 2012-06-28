@@ -2,7 +2,7 @@
 var Parser = require('../')
   , bools = Parser.bools;
 
-describe('ms', function(){
+describe('bools', function(){
   it('should parse string bool representations', function(){
     bools('', 'yes').should.be.true;
     bools('', 'enabled').should.be.true;

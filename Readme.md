@@ -109,6 +109,19 @@ yields:
 
   Convert "yes", "no", "enabled", "disabled" into booleans.
 
+### eson.env([prefix])
+
+  Allow environment variables to define config values. If you have the following:
+
+```js
+{
+  "upload path": "/data/uploads"
+}
+```
+
+  You could then export `UPLOAD_PATH=/tmp` to change this value. Optionally when
+  a `prefix` is given such as "MYAPP_" then you must prefix such as `MYAPP_UPLOAD_PATH=/tmp`.
+
 ### eson.replace(str, val)
 
   The replace plugin allows you to replace arbitrary substrings, useful
