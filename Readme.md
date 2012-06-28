@@ -105,6 +105,10 @@ yields:
 { prod: { whatever: 'is', within: 'config/production.json' }}
 ```
 
+### eson.bools
+
+  Convert "yes", "no", "enabled", "disabled" into booleans.
+
 ### eson.replace(str, val)
 
   The replace plugin allows you to replace arbitrary substrings, useful
