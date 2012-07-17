@@ -70,5 +70,12 @@ describe('Parser', function(){
       parser.parse('{ "foo": "bar" }')
         .should.eql({ foo: 'hey' });
     })
+
+    it('should also parse objects', function(){
+      var parser = new Parser
+        , data = { foo: 'bar' };
+
+      parser.parse(data).should.eql(data);
+    })
   })
 })
