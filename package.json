@@ -1,6 +1,6 @@
 {
     "name": "eson"
-  , "version": "0.2.0"
+  , "version": "0.3.0"
   , "description": "Extended JSON - pluggable JSON logic for dates, includes, and more"
   , "keywords": ["json", "config"]
   , "author": "TJ Holowaychuk <tj@vision-media.ca>"
