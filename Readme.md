@@ -107,7 +107,7 @@ yields:
 
 ### eson.bools
 
-  Convert "yes", "no", "enabled", "disabled" into booleans.
+  Convert "yes", "no", "on", "off", "enabled", "disabled" into booleans.
 
 ### eson.env([prefix])
 
