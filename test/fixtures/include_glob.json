@@ -1,0 +1,5 @@
+{
+  "app-config": "include config/{database,http}",
+  "user-config": "include { config/{permissions,roles}}",
+  "users": "include [ users/* ]"
+}
