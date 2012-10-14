@@ -1,4 +1,10 @@
 
+0.4.0 / 2012-10-13 
+==================
+
+  * add .json extname to paths that omit it. Closes #10
+  * add on / off to .bools
+
 0.3.0 / 2012-07-17 
 ==================
 

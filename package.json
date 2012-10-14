@@ -1,6 +1,6 @@
 {
     "name": "eson"
-  , "version": "0.3.0"
+  , "version": "0.4.0"
   , "description": "Extended JSON - pluggable JSON logic for dates, includes, and more"
   , "repository": { "type": "git", "url": "git://github.com/visionmedia/eson.git" }
   , "keywords": ["json", "config"]
