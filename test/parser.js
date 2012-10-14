@@ -29,6 +29,13 @@ describe('Parser', function(){
       var obj = parser.read('test/fixtures/config.json');
       obj.should.eql({ foo: 'BAR', bar: 'BAZ' });
     })
+
+    it('should append .json when missing', function(){
+      var parser = new Parser;
+      parser.use(function(key, val){ return val.toUpperCase(); });
+      var obj = parser.read('test/fixtures/config');
+      obj.should.eql({ foo: 'BAR', bar: 'BAZ' });
+    })
   })
 
   describe('.parse(str)', function(){
