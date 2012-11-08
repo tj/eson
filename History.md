@@ -1,4 +1,9 @@
 
+0.4.1 / 2012-11-07 
+==================
+
+  * assume underscore suffix for env plugin prefix
+
 0.4.0 / 2012-10-13 
 ==================
 
