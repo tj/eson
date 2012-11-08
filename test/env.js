@@ -20,4 +20,10 @@ describe('env(prefix)', function(){
     process.env.NB_DEV_UI = 'yes';
     fn('dev ui', 'no').should.equal('yes');
   })
+
+  it('should append underbar', function(){
+    var fn = env('NB');
+    process.env.NB_DEV_UI = 'yes';
+    fn('dev ui', 'no').should.equal('yes');
+  });
 })
