@@ -105,6 +105,90 @@ yields:
 { prod: { whatever: 'is', within: 'config/production.json' }}
 ```
 
+ You can also include multiple files via a glob. This has a special syntax and works in one of three ways.
+
+Consider a config folder containing the following two files:
+
+*database.json:*
+```json
+{"db", "redis"}
+```
+*app.json:*
+```json
+{"listen", 3000}
+```
+
+##### Merging multiple files into one:
+
+```js
+
+eson()
+  .use(eson.include)
+  .parse('{ "prod": "include config/*" }');
+```
+yields:
+
+```js
+{
+	prod: {
+		db: "redis",
+		listen: 3000
+	}
+}
+```
+
+##### Collect files into a map, keyed by filename:
+
+```js
+
+// use curly brackets to collect as a map
+eson()
+  .use(eson.include)
+  .parse('{ "prod": "include { config/* }" }');
+
+```
+
+yields:
+
+
+```js
+{
+	prod: {
+		database: {
+			db: "redis"
+		},
+		app: {
+			listen: 3000
+		}
+	}
+}
+
+```
+
+##### Collect files as an array:
+
+
+```js
+
+// use square brackets to collect as an array
+eson()
+  .use(eson.include)
+  .parse('{ "prod": "include [ config/* ]" }'); 
+
+```
+
+yields:
+
+```js
+{
+	prod: [
+		{db: "redis"},
+		{listen: 3000}
+	]
+}
+```
+
+
 ### eson.bools
 
   Convert "yes", "no", "on", "off", "enabled", "disabled" into booleans.
